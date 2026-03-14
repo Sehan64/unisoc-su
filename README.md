@@ -4,13 +4,13 @@
 
 Based on [unisoc-su by Skorpion96](https://github.com/Skorpion96/unisoc-su) — a method for CVE-2022-47339 to connect to `cmd_skt` and obtain a root shell on unpatched Unisoc models.
 
-> Skorpion96 | SeHan | Elite
+> SeHan | Elite  > built on [unisoc-su by Skorpion96](https://github.com/Skorpion96/unisoc-su)
 
 ---
 
 ## Overview
 
-This is an AxManager plugin that builds on Skorpion96's unisoc-su to provide a full interactive root shell experience. It wraps the CVE-2022-47339 exploit chain into an installable plugin with a live-streaming shell client, background job control, and session recovery — all accessible directly from AxManager's QuickShell.
+This is an AxManager plugin by SeHan that builds on Skorpion96's unisoc-su to provide a full interactive root shell experience. It wraps the CVE-2022-47339 exploit chain into an installable plugin with a live-streaming shell client, background job control, and session recovery — all accessible directly from AxManager's QuickShell.
 
 **This is not persistent root.** Rootbridge runs only for the current session and must be restarted after a reboot.
 
@@ -104,7 +104,6 @@ unisoc-su -h               show help
 | `exit` | Exit the shell and shut down rootbridge |
 | `kill` | Stop the currently running background command |
 | `attach` | Reattach to a running background command |
-| `kill <pid>` | Forward kill signal to a process (system command) |
 | `help` | Show usage |
 
 **Background commands:** Long-running scripts stream output live. After 5 seconds of no new output the prompt returns automatically. Type `attach` to resume watching or `kill` to stop the command.
@@ -114,25 +113,6 @@ unisoc-su -h               show help
 ## How rootbridge works
 
 `setup.sh` runs inside the `cmd_services` root context and creates a file-based IPC channel at `/sdcard/unisoc-su/rootbridge/`. The `unisoc-su` client shell (running in QuickShell as UID 1000) writes commands to `in/command.txt`, rootbridge executes them as root and writes output to `out/result.txt`, then creates `out/done` to signal completion. The client streams `out/result.txt` in real time using a byte-offset reader.
-
-```
-QuickShell (uid=1000)
-       |
-       |  unisoc-su client
-       |
-       v
-/sdcard/unisoc-su/rootbridge/in/command.txt
-                                    |
-                             setup.sh daemon (uid=0, cmd_services)
-                                    |
-                             /sdcard/unisoc-su/rootbridge/out/result.txt
-                                    |
-       ^                     out/done  (completion sentinel)
-       |
-       |  stream_output() polls every 100ms
-       |
-QuickShell output
-```
 
 ---
 
@@ -180,9 +160,8 @@ If the shell was killed externally (e.g. via AxManager's stop button while a scr
 
 ## Credits
 
-- **[Skorpion96](https://github.com/Skorpion96)** — original [unisoc-su](https://github.com/Skorpion96/unisoc-su), CVE-2022-47339 exploitation method, `cmd_skt` research
-- **SeHan** — CVE-2022-47339 original discovery and disclosure
-- **Elite** — AxManager plugin, rootbridge IPC design, streaming shell client
+- **SeHan (Elite)** — plugin author; AxManager plugin, rootbridge IPC design, streaming shell client, CVE-2022-47339 discovery and disclosure
+- **[Skorpion96](https://github.com/Skorpion96)** — original [unisoc-su](https://github.com/Skorpion96/unisoc-su), `cmd_skt` exploitation method and research
 
 ---
 
