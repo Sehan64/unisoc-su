@@ -23,7 +23,7 @@ This is an AxManager plugin by me that builds on Skorpion96's unisoc-su to provi
 | SoC | Unisoc / Spreadtrum |
 | Required app | `com.sprd.engineermode` (sharedUser UID must be 1000) |
 | Max security patch | **2025-06-05** |
-| Framework | AxManager (with plugin + QuickShell support) |
+| Framework | AxManager |
 
 Devices patched after June 5 2025 are not supported — the patch closes the `cmd_skt` access that the exploit relies on.
 
