@@ -2,6 +2,7 @@
 
 **Interactive root shell for Unisoc/Spreadtrum devices via CVE-2022-47339**
 
+---
 
 ## What it is
 
@@ -9,6 +10,7 @@ unisoc-su is an AxManager plugin that gives you an interactive root shell on unp
 
 This is not Magisk root. It does not persist across reboots by default and does not modify the system partition. It is a shell-level exploit that works while the device is unpatched.
 
+---
 
 ## Requirements
 
@@ -20,6 +22,7 @@ This is not Magisk root. It does not persist across reboots by default and does 
 | Framework | [AxManager](https://github.com/frb-axeron) with plugin support |
 | Tools | `nc` (netcat) available on device |
 
+---
 
 ## How it works
 
@@ -83,6 +86,7 @@ unisoc-su -h               show help
 
 Long-running scripts (e.g. monitoring loops) stream output live. After 5 seconds of no new output the prompt returns — type `attach` to reattach or `kill` to stop.
 
+---
 
 ## Security considerations
 
@@ -91,6 +95,7 @@ Long-running scripts (e.g. monitoring loops) stream output live. After 5 seconds
 - **This exploit only works on unpatched devices.** The June 2025 security patch closes the `cmd_skt` access that `cli-pie` relies on. Check your patch level in Settings → About → Security patch level.
 - This tool is intended for use on your own device for research and development purposes.
 
+---
 
 ## Stopping rootbridge
 
