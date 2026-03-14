@@ -10,7 +10,7 @@ Based on [unisoc-su by Skorpion96](https://github.com/Skorpion96/unisoc-su) — 
 
 ## Overview
 
-This is an AxManager plugin by SeHan that builds on Skorpion96's unisoc-su to provide a full interactive root shell experience. It wraps the CVE-2022-47339 exploit chain into an installable plugin with a live-streaming shell client, background job control, and session recovery — all accessible directly from AxManager's QuickShell.
+This is an AxManager plugin by me that builds on Skorpion96's unisoc-su to provide a full interactive root shell experience. It wraps the CVE-2022-47339 exploit chain into an installable plugin with a live-streaming shell client, background job control, and session recovery — all accessible directly from AxManager's QuickShell.
 
 **This is not persistent root.** Rootbridge runs only for the current session and must be restarted after a reboot.
 
