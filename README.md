@@ -160,7 +160,7 @@ If the shell was killed externally (e.g. via AxManager's stop button while a scr
 
 ## Credits
 
-- **SeHan (Elite)** — plugin author; AxManager plugin, rootbridge IPC design, streaming shell client, CVE-2022-47339 discovery and disclosure
+- **SeHan** — plugin author; AxManager plugin
 - **[Skorpion96](https://github.com/Skorpion96)** — original [unisoc-su](https://github.com/Skorpion96/unisoc-su), `cmd_skt` exploitation method and research
 
 ---
