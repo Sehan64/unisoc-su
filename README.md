@@ -4,7 +4,7 @@
 
 Based on [unisoc-su by Skorpion96](https://github.com/Skorpion96/unisoc-su) — a method for CVE-2022-47339 to connect to `cmd_skt` and obtain a root shell on unpatched Unisoc models.
 
-> SeHan | Elite  > built on [unisoc-su by Skorpion96](https://github.com/Skorpion96/unisoc-su)
+> SeHan  > built on [unisoc-su by Skorpion96](https://github.com/Skorpion96/unisoc-su)
 
 ---
 
